@@ -28,12 +28,7 @@ class DataController extends Controller
 	}
 
 
-    public function AutHandle(){
-            
-            $Sens = \App\Sensori::all();
-            $user = Auth::user();
-            return view('/userviews/authandle', compact('Sens','user'));
-    }
+ 
 
 
 
