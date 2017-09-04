@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\User;
+use \App\ambienti;
 use Auth;
 
 class DataController extends Controller
@@ -39,5 +40,20 @@ class DataController extends Controller
 	public function Stat(){
 
     		return view('/userviews/stat');
-	}
+	
+    }
+
+
+    public function Sito($id){
+
+            $user = Auth::user();
+            $sito = \App\ambienti::find($id);
+
+            $Sensori=\App\Sensori::all()->where('ambiente', $sito['id']);
+            
+
+            //gestione e controllo accesso autorizzato
+            return view('/userviews/sito',compact('sito','user','Sensori'));
+        }
+    
 }

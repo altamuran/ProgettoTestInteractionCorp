@@ -9,29 +9,26 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Identifictore</th>
-                  <th>Codice</th>
-                  <th>Info</th>
-                  <th>Sito</th>
+                  <th>Descrizione</th>
+                  <th>Numero sensori</th>
                   <th>User</th>
+                  
                 </tr>
               </thead>
-              @foreach ($Sens as $S)
-    
-
+              
               <tbody>
                 <tr>
-                  <td>{{$S->id}}</td>
-                  <td>{{$S->identificatore}}</td>
-                  <td>{{$S->codice}}</td>
-                  <td>{{$S->info}}</td>
-                  <td><a href="{{route('sito', [$S->ambiente])}}">{{$S->ambiente}}</a></td>
+                  <td>{{$sito->id}}</td>
+                  <td>{{$sito->descrizione}}</td>
+                  <td>{{$sito->n_sensori}}</td>
+                  <td>{{$user->name}}</td>
+                  <td>link</a></td>
                   
-                  <td>{{$S->user}}</td>
+                  
                   
                 </tr>
                
-      @endforeach               
+            
               </tbody>
             </table>
           </div>

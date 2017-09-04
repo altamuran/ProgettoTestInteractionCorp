@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'DataController@Handle')->name('home');
 Route::get('/userviews/handle', 'DataController@Handle')->name('handle');
-Route::get('/userviews/user', 'DataController@User')->name('user');
+//Route::get('/userviews/user', 'DataController@User')->name('user');
+Route::get('/userviews/sito/{id}', 'DataController@Sito')->name('sito');
 Route::get('/userviews/stat', 'DataController@Stat')->name('stat');
 Route::get('/userviews/handle', 'DataController@AutHandle')->name('authandle');

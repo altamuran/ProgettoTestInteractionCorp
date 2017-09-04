@@ -5,11 +5,13 @@
             <li class="active">
 
        		<li><a href="{{route('home')}}">HOME</a></li>
-           	<li><a href="{{route('stat')}}">ANALYSIS</a></li>
-           	<li><a href="{{route('user')}}">USER</a></li>
+           	<li><a href="{{route('stat')}}"></a></li>
+           	
 
            	@if(($user->privilegi)==2)
            	<li><a href="{{route('authandle')}}">GESTIONE SENSORI</a></li>
+            <li><a href="{{route('')}}">GESTISCI UTENTI</a></li>
+            <li><a href="{{route('')}}"></a></li>
            	@endif
           </ul>
     

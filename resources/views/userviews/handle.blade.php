@@ -8,7 +8,7 @@
 	@include('layouts.navbar')
 
 	@include('layouts.sidebar')
-    @include('layouts.table')
+  @include('layouts.table')
         
 
     <div class="row col-md-8 col-md-offset-2" style="margin-top: 150px">
