@@ -19,8 +19,8 @@
 
           @if (Route::has('login'))
           @auth
-                        <li><a href="{{ url('/home') }}">rotta utente autenticato</a></li>
-                        <li><a href="#">{{$user->name}}</a></li>
+                        <li><a href="{{ url('/home') }}">Rilevazioni</a></li>
+                        <li><a href="#">{{ Auth::user()->name }}</a></li>
                     @else
                     @endauth
                     @endif
@@ -32,9 +32,7 @@
 
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
+            </ul>
           <form class="navbar-form navbar-right col-md-2">
             <input type="text" class="form-control" placeholder="Search...">
           </form>

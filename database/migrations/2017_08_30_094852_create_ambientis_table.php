@@ -14,10 +14,15 @@ class CreateAmbientisTable extends Migration
     public function up()
     {
         Schema::create('ambienti', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+            $table->increments('id')->index()->unsigned();
             $table->string('descrizione');
-            $table->integer('n_sensori');
+            $table->integer('user')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user')->references('id')->on('Users')->onDelete('cascade');
+
+
+            
 
         });
     }

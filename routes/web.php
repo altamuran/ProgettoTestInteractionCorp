@@ -20,9 +20,13 @@ Auth::routes();
 Route::get('/home', 'DataController@Handle')->name('home');
 Route::get('/userviews/handle', 'DataController@Handle')->name('handle');
 Route::get('/userviews/sito/{id}', 'DataController@Sito')->name('sito');
-Route::get('/userviews/stat', 'DataController@Stat')->name('stat');
+
 
 
 //route utente root
-Route::get('/userviews/gestione_sensori', 'AdminController@AutHandle')->name('authandle');
-Route::get('/userviews/gestione_utenti', 'AdminController@UserHandle')->name('userhandle');
+Route::get('/adminviews/gestione_sensori', 'AdminController@AutHandle')->name('authandle');
+Route::get('/adminviews/gestione_utenti', 'AdminController@UserHandle')->name('userhandle');
+Route::get('/adminiews/gestione_siti/{user_id}', 'AdminController@SiteHandle')->name('sitehandle');
+Route::get('/adminiews/gestione_sensori/{site_id}', 'AdminController@SensoriHandle')->name('sensorihandle');
+Route::get('/adminiews/admin_page', 'AdminController@AddUser')->name('adduser');
+Route::get('/adminiews/accept/{user_id}', 'AdminController@Accept')->name('accept');

@@ -3,27 +3,27 @@
 
           
 
-          <h2 class="sub-header" style="margin-top: 50px">SENSORI</h2>
+          <h2 class="sub-header" style="margin-top: 50px">SITI</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Descrizione</th>
-                  <th>Numero sensori</th>
                   <th>User</th>
                   
                 </tr>
               </thead>
-              
+                 @foreach ($Sito as $sito)
               <tbody>
                 <tr>
                   <td>{{$sito->id}}</td>
                   <td>{{$sito->descrizione}}</td>
-                  <td>{{$sito->n_sensori}}</td>
-                  <td>{{$user->name}}</td>
-                  <td>link</a></td>
-                  
+                  <td>{{$User->name}}</td>
+                   <td><a href="{{route('sensorihandle',[$sito->id])}}"><button type="button" class="btn btn-primary btn-sm btn3d">
+                          visualizza sensori
+                        </button></a></td>
+              @endforeach        
                   
                   
                 </tr>

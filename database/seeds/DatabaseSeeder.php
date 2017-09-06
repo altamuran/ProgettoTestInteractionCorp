@@ -19,6 +19,11 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSed::class);
         $this->call(AmbientiSeed::class);
 	    $this->call(SensoriSed::class);
+        
+        
+
+        $this->call(RilevazioniSeed::class);
+  
 
 
 	    

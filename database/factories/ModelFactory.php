@@ -28,10 +28,8 @@ $factory->define(App\Sensori::class, function (Faker\Generator $faker) {
 
     return [
     	 //'id'=>$faker->randomDigitNotNull,
-        'identificatore' => $faker->word,
-        'codice' => $faker->randomNumber,
-        'info' =>$faker->word,
-        'user'=>App\User::all()->shuffle()->slice(0,1)->first()->id,
+        'codice' => $faker->word,
+        'marca' =>$faker->randomDigitNotNull,
         'ambiente'=>App\ambienti::all()->shuffle()->slice(0,1)->first()->id,
         //'created_at'=>$faker->dateTime,
         //'updated_at'=>$faker->dateTime,
@@ -46,6 +44,18 @@ $factory->define(App\ambienti::class, function (Faker\Generator $faker) {
     return [
          
         'descrizione' => $faker->word,
-        'n_sensori' => $faker->randomNumber,
+        'user'=>App\User::all()->shuffle()->slice(0,1)->first()->id,
+        ];
+});
+
+
+$factory->define(App\rilevazioni::class, function (Faker\Generator $faker) {
+
+    return [
+         
+        'valore' => $faker->word,
+        'messaggio' => $faker->word,
+        'id_sensore'=>App\Sensori::all()->shuffle()->slice(0,1)->first()->id,
+        'data_ril'=>$faker->dateTime,
         ];
 });

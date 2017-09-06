@@ -3,7 +3,7 @@
 
           
 
-          <h2 class="sub-header" style="margin-top: 50px">USERS</h2>
+          <h2 class="sub-header" style="margin-top: 50px">NOT ACCEPTED USERS</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -12,7 +12,7 @@
                   <th>Name</th>
                   <th>email</th>
                   <th>privilegi</th>
-                  <th>Siti</th>
+                  <th>accept</th>
                   
                 </tr>
               </thead>
@@ -25,11 +25,13 @@
                   <td>{{$U->name}}</td>
                   <td>{{$U->email}}</td>
                   <td>{{$U->privilegi}}</td>
-
-                  <td><a href="{{route('sitehandle',[$U->id])}}"><button type="button" class="btn btn-primary btn-sm btn3d">
-                          visualizza siti
+                  <td>{{$U->accept}}</td>
+  
+                  <td><a href="{{ route('accept', [$U->id]) }}" method="post"><button type="button" class="btn btn-primary btn-sm btn3d">
+                                     Accetta
                         </button></a></td>
-                
+
+      
 
               
                   

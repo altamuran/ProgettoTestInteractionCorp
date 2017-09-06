@@ -27,10 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-       public function Sensori()
+     public function User()
     {
-        return $this->hasMany('App\Sensori');
+        return $this->hasMany('\App\ambienti');
     }
+
 
     
 }

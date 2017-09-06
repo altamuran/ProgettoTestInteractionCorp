@@ -14,4 +14,13 @@ class ambienti extends Model
     {
         return $this->hasMany('App\Sensori');
     }
+
+
+    public function User()
+    
+    {
+        return $this->belongsTo('App\User');
+
+
+    }
 }

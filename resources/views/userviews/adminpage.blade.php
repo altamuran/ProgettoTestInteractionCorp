@@ -9,7 +9,7 @@
 
 	@include('layouts.sidebar')
 	
-	@include('layouts.table_siti')
+	@include('layouts.not_accept_user')
     
 
 @endsection
