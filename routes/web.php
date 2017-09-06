@@ -30,3 +30,5 @@ Route::get('/adminiews/gestione_siti/{user_id}', 'AdminController@SiteHandle')->
 Route::get('/adminiews/gestione_sensori/{site_id}', 'AdminController@SensoriHandle')->name('sensorihandle');
 Route::get('/adminiews/admin_page', 'AdminController@AddUser')->name('adduser');
 Route::get('/adminiews/accept/{user_id}', 'AdminController@Accept')->name('accept');
+Route::get('/adminiews/addsite', 'AdminController@AddSite')->name('addsite');
+Route::post('/adminiews/addnewsite', 'AdminController@AddSitePost')->name('addnewsite');

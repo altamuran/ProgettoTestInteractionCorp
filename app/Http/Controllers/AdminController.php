@@ -1,8 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 
+
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -80,6 +86,30 @@ class AdminController extends Controller
 
       return redirect()->action(
     'AdminController@AddUser');
+
+    }
+
+    public function AddSite(){
+    
+
+
+    return view('/userviews/addsite');
+
+    }
+
+
+
+    public function AddSitePost(Request $request){
+
+            
+        
+
+        $site= new \App\ambienti;
+        $site->descrizione=$request->input('name');
+        $site->user=$request->input('user');
+        $site->save();
+
+     return redirect()->route('sitehandle', ['id' => $request->input('user')]);
 
     }
 }
