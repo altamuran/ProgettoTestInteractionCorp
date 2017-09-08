@@ -12,7 +12,6 @@
                   <th>Codice</th>
                   <th>Marca</th>
                   <th>Sito</th>
-                  <th>User</th>
                 </tr>
               </thead>
               @foreach ($Sensori as $S)
@@ -23,7 +22,13 @@
                   <td>{{$S->id}}</td>
                   <td>{{$S->codice}}</td>
                   <td>{{$S->marca}}</td>
-                  <td>link</td>
+                  <td>{{$S->ambiente}}</td>
+                  <td><a href="">
+                        <button type="submit" class="btn btn-danger btn-sm btn3d" >
+                        Elimina sensore
+                        </button>
+                  </td>
+    
                   
                   
                 </tr>

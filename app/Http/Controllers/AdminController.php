@@ -61,7 +61,7 @@ class AdminController extends Controller
 
                 
                 
-            return view('/userviews/sensori_handle',compact('Sensori'));
+            return view('/userviews/sensori_handle',compact('Sensori','site_id'));
     }
 
 
@@ -89,11 +89,9 @@ class AdminController extends Controller
 
     }
 
-    public function AddSite(){
-    
-
-
-    return view('/userviews/addsite');
+    public function AddSite($site_id){
+     
+      return view('/userviews/addsite');
 
     }
 
@@ -112,4 +110,39 @@ class AdminController extends Controller
      return redirect()->route('sitehandle', ['id' => $request->input('user')]);
 
     }
+
+        public function RemoveSite($request)
+    {   
+
+        $s = \App\ambienti::find($request);
+        $s->delete();
+        
+
+
+         return back()->withInput();
+    }
+
+    public function AddSensore($site_id){
+
+     $site=$site_id;
+     
+      return view('/userviews/addsensore',compact('site'));
+
+    }
+
+      public function AddNewSensore(Request $request){
+
+        
+
+        $sensore= new \App\Sensori;
+        $sensore->codice=$request->input('codice');
+        $sensore->marca=$request->input('marca');
+        $sensore->ambiente=$request->input('sito');
+        $sensore->save();
+
+        return redirect()->route('sensorihandle',$request->input('sito'));
+    }
+    
+
+
 }

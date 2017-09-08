@@ -2,7 +2,6 @@
           <h2>Dashboard</2>
 
           
-
           <h2 class="sub-header" style="margin-top: 50px">SITI</h2>
           <div class="table-responsive">
             <table class="table table-striped">
@@ -20,18 +19,28 @@
                   <td>{{$sito->id}}</td>
                   <td>{{$sito->descrizione}}</td>
                   <td>{{$User->name}}</td>
-                   <td><a href="{{route('sensorihandle',[$sito->id])}}"><button type="button" class="btn btn-primary btn-sm btn3d">
-                          visualizza sensori
-                        </button></a></td>
+                   <td><a href="{{route('sensorihandle',[$sito->id])}}"><button type="button" class="btn btn-primary btn-sm btn3d" id="button" >
+                          Visualizza sensori
+                        </button></a>
+                        </td>
+                        <td><a href="{{route('removesite',[$sito->id])}}">
+                        <button type="submit" class="btn btn-danger btn-sm btn3d" >
+                        Elimina sito
+                        </button>
+                      </td>
               @endforeach        
                   
                   
                 </tr>
-               
-            
-              </tbody>
+                </tbody>
             </table>
+                  
+
           </div>
         </div>
       </div>
+
     </div>
+
+
+
