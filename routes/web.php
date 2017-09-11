@@ -1,5 +1,5 @@
 <?php
-
+use \App\Http\Middleware\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,8 +26,8 @@ Route::get('/guest/sensori/{site_id}', 'DataController@Sensori')->name('sensori'
 
 
 //route utente root
-Route::get('/adminviews/gestione_sensori', 'AdminController@AutHandle')->name('authandle');
-
+//Route::get('/adminviews/gestione_sensori', 'AdminController@AutHandle')->name('authandle')->middleware('auth.admin');
+Route::group(['middleware' => 'auth.admin'], function (){
 Route::get('/adminviews/gestione_utenti', 'AdminController@UserHandle')->name('userhandle');
 Route::get('/adminiews/admin_page', 'AdminController@AddUser')->name('adduser');
 Route::get('/adminiews/accept/{user_id}', 'AdminController@Accept')->name('accept');
@@ -44,3 +44,4 @@ Route::get('/adminiews/removesensore/{sensore_id}', 'AdminController@RemoveSenso
 
 Route::get('/adminiews/editsensore/{sensore_id}/{site_id}', 'AdminController@EditSensore')->name('editsensore');
 Route::post('/adminiews/edit', 'AdminController@Edit')->name('edit');
+});
