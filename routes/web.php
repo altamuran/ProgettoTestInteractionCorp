@@ -18,8 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'DataController@Handle')->name('home');
-Route::get('/userviews/handle', 'DataController@Handle')->name('handle');
-Route::get('/userviews/sito/{id}', 'DataController@Sito')->name('sito');
+Route::get('/guest/handle', 'DataController@Handle')->name('handle');
+Route::get('/guest/sensori/{site_id}', 'DataController@Sensori')->name('sensori');
+
+
 
 
 
