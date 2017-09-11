@@ -38,3 +38,7 @@ Route::get('/adminiews/removesite/{site_id}', 'AdminController@RemoveSite')->nam
 Route::get('/adminiews/gestione_sensori/{site_id}', 'AdminController@SensoriHandle')->name('sensorihandle');
 Route::get('/adminiews/addsensore/{site_id}', 'AdminController@AddSensore')->name('addsensore');
 Route::post('/adminiews/addnewsensore', 'AdminController@AddNewSensore')->name('addnewsensore');
+Route::get('/adminiews/removesensore/{sensore_id}', 'AdminController@RemoveSensore')->name('removesensore');
+
+Route::get('/adminiews/editsensore/{sensore_id}/{site_id}', 'AdminController@EditSensore')->name('editsensore');
+Route::post('/adminiews/edit', 'AdminController@Edit')->name('edit');

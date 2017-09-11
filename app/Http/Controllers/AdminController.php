@@ -142,7 +142,43 @@ class AdminController extends Controller
 
         return redirect()->route('sensorihandle',$request->input('sito'));
     }
+
+     public function RemoveSensore($request)
+    {   
+        
+        $s = \App\Sensori::find($request);
+        $ambiente= $s->ambiente;
+        $s->delete();
+        
+        return redirect()->action(
+    'AdminController@SensoriHandle',['site_id' => $ambiente]);
+    }
     
+      
+       public function EditSensore($sensore_id,$site_id)
+    {   
+        $sensore=$sensore_id;
+        $site=$site_id;
+
+        return view('/userviews/editsensore',compact('sensore_id','site'));
+
+    }
+
+    public function Edit(Request $request)
+    {   
+        
+        $s = \App\Sensori::find($request->input('id_sensore'));
+        $ambiente= $s->ambiente;
+
+        $s->codice=$request->input('codice');
+        $s->marca=$request->input('marca');
+        $s->save();        
+        
+        return redirect()->action(
+    'AdminController@SensoriHandle',['site_id' => $ambiente]);
+    }
+      
+
 
 
 }

@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 main">
+<div class="col-sm-5 col-sm-offset-3 col-md-8 col-md-offset-2 main">
           <h2>Dashboard</2>
 
           
@@ -23,10 +23,17 @@
                   <td>{{$S->codice}}</td>
                   <td>{{$S->marca}}</td>
                   <td>{{$S->ambiente}}</td>
-                  <td><a href="">
+                  <td><a href="{{route('removesensore',[$S->id])}}">
                         <button type="submit" class="btn btn-danger btn-sm btn3d" >
                         Elimina sensore
                         </button>
+                        </a>
+                  </td>
+                  <td><a href="{{route('editsensore',[$S->id,$S->ambiente])}}">
+                        <button type="submit" class="btn btn-primary btn-sm btn3d" >
+                        Modifica sensore
+                        </button>
+                        </a>
                   </td>
     
                   
