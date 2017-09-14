@@ -11,8 +11,7 @@
                   <th>#</th>
                   <th>Name</th>
                   <th>email</th>
-                  <th>privilegi</th>
-                  <th>accept</th>
+                  
                   
                 </tr>
               </thead>
@@ -24,8 +23,7 @@
                   <td>{{$U->id}}</td>
                   <td>{{$U->name}}</td>
                   <td>{{$U->email}}</td>
-                  <td>{{$U->privilegi}}</td>
-                  <td>{{$U->accept}}</td>
+                  
   
                   <td><a href="{{ route('accept', [$U->id]) }}" method="post"><button type="button" class="btn btn-primary btn-sm btn3d">
                                      Accetta

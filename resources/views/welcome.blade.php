@@ -5,11 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>InterActionCorp</title>
+        <title>IoT App</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet" type="text/css">
-
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -69,21 +68,22 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    @auth
+                    @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
                 </div>
             @endif
 
             <div class="content">
+                <img src="https://radiobridge.com/wp-content/uploads/2017/01/3.png" alt="">
                 <div class="title m-b-md">
-                    InterActionCorp
+                    IoT App         
                 </div>
-
-               
+                <h3>All you need is in your hands</h3>
+                <h1>Designed by InterAction Corp.</h1>
             </div>
         </div>
     </body>

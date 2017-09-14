@@ -34,9 +34,12 @@ class AdminController extends Controller
 
           public function UserHandle(){
             
-           
+          
+            $all_user=DB::table('Users')
+                ->where('accept','=', 1)
+                ->get();
             $user = Auth::user();
-            $all_user =	\App\User::all();
+            
             $flag=0;
 
             return view('/userviews/user_handle', compact('all_user','user','flag'));
@@ -202,6 +205,17 @@ class AdminController extends Controller
     'AdminController@SiteHandle',['user_id' => $user->id]);
     }  
 
+    public function Detection($id_sensore){
+           
+        $detections =DB::table('rilevazioni')
+                ->where('id_sensore','=', $id_sensore)
+                ->get();
+
+
+
+          return view('/userviews/detection', compact('detections'));
+
+    }  
 
 
 }

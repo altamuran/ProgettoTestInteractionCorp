@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 use Auth;
 use Closure;
 
-class Admin
+class GuestUser
 {
     /**
      * Handle an incoming request.
@@ -14,19 +14,8 @@ class Admin
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {    
-
-        $user = Auth::user();
-
-        if($user && $user->privilegi==2)
-        return $next($request);
-
-        
-
-
-
-        
-
-        return redirect('/login');
-    }
+    {   
+    
+        }
+    
 }

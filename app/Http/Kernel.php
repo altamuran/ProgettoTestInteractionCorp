@@ -53,6 +53,7 @@ class Kernel extends HttpKernel
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'Rilevazione' => \App\Http\Middleware\Rilevazione::class,
+        'GuestUser' => \App\Http\Middleware\GuestUser::class,
         'auth.admin' => \App\Http\Middleware\Admin::class,
         'StringGen' => \App\Http\Middleware\StringGen::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

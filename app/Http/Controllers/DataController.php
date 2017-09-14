@@ -23,9 +23,9 @@ class DataController extends Controller
  
 
 	public function Handle(){
-            
-            $Sito = \App\ambienti::all()->where('user', Auth::User()->id);
             $User = Auth::user();
+            $Sito = \App\ambienti::all()->where('user', Auth::User()->id);
+            
             return view('/guest/handle', compact('Sito','User'));
 	}
 
@@ -45,11 +45,10 @@ class DataController extends Controller
 
 
 
-	public function Stat(){
+	public function NoUser(){
 
-    		return view('/userviews/stat');
-	
-    }
+    		return view('/guest/no_accept_user');
+	}
 
 
     

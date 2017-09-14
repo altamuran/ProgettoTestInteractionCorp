@@ -35,6 +35,13 @@
                         </button>
                         </a>
                   </td>
+
+                  <td><a href="{{route('detection',[$S->id])}}">
+                        <button type="submit" class="btn btn-primary btn-sm btn3d" >
+                        Visualizza rilevazione
+                        </button>
+                        </a>
+                  </td>
     
                   
                   
