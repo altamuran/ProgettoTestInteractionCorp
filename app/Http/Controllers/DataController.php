@@ -41,15 +41,22 @@ class DataController extends Controller
     }
 
 
- 
-
-
-
-	public function NoUser(){
+ public function NoUser(){
 
     		return view('/guest/no_accept_user');
 	}
 
 
+  public function Detection($id_sensore){
+
+    $detections =DB::table('rilevazioni')
+    ->where('id_sensore','=', $id_sensore)
+    ->get();
+    return view('guest/detection', compact('detections'));
+
+  
+
     
+}
+
 }

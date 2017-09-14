@@ -25,6 +25,7 @@
                           Visualizza sensori
                     </button></a>
                   </td>
+                  
                         
               @endforeach        
                   

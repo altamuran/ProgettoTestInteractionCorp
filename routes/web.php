@@ -21,8 +21,7 @@ Auth::routes();
 Route::get('/home', 'DataController@Handle')->name('home');
 Route::get('/guest/handle', 'DataController@Handle')->name('handle');
 Route::get('/guest/sensori/{site_id}', 'DataController@Sensori')->name('sensori');
-Route::get('/guest/notuser', 'DataController@NoUser')->name('nouser');
-
+Route::get('/guest/sensori/{sensore_id}', 'DataController@Detection')->name('g_detection');
 
 //route utente root
 //Route::get('/adminviews/gestione_sensori', 'AdminController@AutHandle')->name('authandle')->middleware('auth.admin');
@@ -34,16 +33,16 @@ Route::get('/adminviews/gestione_utenti', 'AdminController@UserHandle')->name('u
 Route::get('/adminiews/admin_page', 'AdminController@AddUser')->name('adduser');
 Route::get('/adminiews/accept/{user_id}', 'AdminController@Accept')->name('accept');
 
-Route::get('/adminiews/gestione_siti/{user_id}', 'AdminController@SiteHandle')->name('sitehandle');
-Route::get('/adminiews/addsite', 'AdminController@AddSite')->name('addsite');
-Route::post('/adminiews/addnewsite', 'AdminController@AddSitePost')->name('addnewsite');
-Route::get('/adminiews/removesite/{site_id}', 'AdminController@RemoveSite')->name('removesite');
+Route::get('/adminiews/gestione_siti/{user_id}', 'SitiController@SiteHandle')->name('sitehandle');
+Route::get('/adminiews/addsite', 'SitiController@AddSite')->name('addsite');
+Route::post('/adminiews/addnewsite', 'SitiController@AddSitePost')->name('addnewsite');
+Route::get('/adminiews/removesite/{site_id}', 'SitiController@RemoveSite')->name('removesite');
 
-Route::get('/adminiews/gestione_sensori/{site_id}', 'AdminController@SensoriHandle')->name('sensorihandle');
-Route::get('/adminiews/addsensore/{site_id}', 'AdminController@AddSensore')->name('addsensore');
-Route::post('/adminiews/addnewsensore', 'AdminController@AddNewSensore')->name('addnewsensore');
-Route::get('/adminiews/detection/{sensore_id}', 'AdminController@Detection')->name('detection');
-Route::get('/adminiews/removesensore/{sensore_id}', 'AdminController@RemoveSensore')->name('removesensore');
+Route::get('/adminiews/gestione_sensori/{site_id}', 'SensoriController@SensoriHandle')->name('sensorihandle');
+Route::get('/adminiews/addsensore/{site_id}', 'SensoriController@AddSensore')->name('addsensore');
+Route::post('/adminiews/addnewsensore', 'SensoriController@AddNewSensore')->name('addnewsensore');
+Route::get('/adminiews/detection/{sensore_id}', 'SensoriController@Detection')->name('detection');
+Route::get('/adminiews/removesensore/{sensore_id}', 'SensoriController@RemoveSensore')->name('removesensore');
 
 Route::get('/adminiews/editsensore/{sensore_id}/{site_id}', 'AdminController@EditSensore')->name('editsensore');
 Route::post('/adminiews/edit', 'AdminController@Edit')->name('edit');

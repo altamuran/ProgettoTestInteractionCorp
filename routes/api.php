@@ -19,6 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-Route::get('/sensore', 'Apisensori@Get')->name('getS');
 
 
