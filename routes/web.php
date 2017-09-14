@@ -22,12 +22,12 @@ Route::get('/guest/handle', 'DataController@Handle')->name('handle');
 Route::get('/guest/sensori/{site_id}', 'DataController@Sensori')->name('sensori');
 
 
-
-
-
 //route utente root
 //Route::get('/adminviews/gestione_sensori', 'AdminController@AutHandle')->name('authandle')->middleware('auth.admin');
-Route::group(['middleware' => 'auth.admin'], function (){
+
+Route::group(['middleware' => 'auth.admin'] ,function (){
+		Route::group(['middleware' => 'StringGen'], function () {
+			Route::group(['middleware' => 'Rilevazione'], function (){
 Route::get('/adminviews/gestione_utenti', 'AdminController@UserHandle')->name('userhandle');
 Route::get('/adminiews/admin_page', 'AdminController@AddUser')->name('adduser');
 Route::get('/adminiews/accept/{user_id}', 'AdminController@Accept')->name('accept');
@@ -44,4 +44,10 @@ Route::get('/adminiews/removesensore/{sensore_id}', 'AdminController@RemoveSenso
 
 Route::get('/adminiews/editsensore/{sensore_id}/{site_id}', 'AdminController@EditSensore')->name('editsensore');
 Route::post('/adminiews/edit', 'AdminController@Edit')->name('edit');
+
+
+Route::post('/adminiews/search', 'AdminController@Search')->name('search');
+
 });
+	});
+		});

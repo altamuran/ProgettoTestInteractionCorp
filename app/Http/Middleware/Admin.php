@@ -20,6 +20,10 @@ class Admin
         if($user && $user->privilegi==2)
         return $next($request);
 
+
+
+        
+
         return redirect('/login');
     }
 }

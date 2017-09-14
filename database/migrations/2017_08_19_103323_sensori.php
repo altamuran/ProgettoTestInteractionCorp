@@ -16,8 +16,8 @@ class Sensori extends Migration
          Schema::create('sensori', function (Blueprint $table) {
         
             $table->increments('id')->index()->unsiged();
-            $table->string('codice');
-            $table->integer('marca');
+            $table->string('tipo');
+            $table->string('marca');
             $table->unsignedInteger('ambiente')->unsiged();
             
             $table->foreign('ambiente')->references('id')->on('ambienti')->onDelete('cascade');

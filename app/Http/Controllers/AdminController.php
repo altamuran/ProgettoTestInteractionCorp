@@ -27,8 +27,8 @@ class AdminController extends Controller
 
       public function AutHandle(){
             
-            $Sens = \App\Sensori::all();
-            $user = Auth::user();
+          $Sens = \App\Sensori::all();
+          $user = Auth::user();
             return view('/userviews/authandle', compact('Sens','user'));
     }
 
@@ -37,15 +37,24 @@ class AdminController extends Controller
            
             $user = Auth::user();
             $all_user =	\App\User::all();
-            return view('/userviews/user_handle', compact('all_user','user'));
+            $flag=0;
+
+            return view('/userviews/user_handle', compact('all_user','user','flag'));
     }
 
 
               public function SiteHandle($user_id){
+                  $u=\App\User::find($user_id);
 
-                 $Sito=DB::table('ambienti')
-                ->where('user','=', $user_id)
-                ->get();
+                  if(!is_null($u)){
+                    $Sito=DB::table('ambienti')
+                    ->where('user','=', $user_id)
+                    ->get();  
+                    }else
+
+              return redirect()->action(
+              'AdminController@UserHandle');
+
 
                 $User=\App\User::find($user_id);
                 
@@ -82,6 +91,7 @@ class AdminController extends Controller
         $accept_user->accept = 1;
 
         $accept_user->save();
+         
 
 
       return redirect()->action(
@@ -89,7 +99,7 @@ class AdminController extends Controller
 
     }
 
-    public function AddSite($site_id){
+    public function AddSite(){
      
       return view('/userviews/addsite');
 
@@ -135,7 +145,7 @@ class AdminController extends Controller
         
 
         $sensore= new \App\Sensori;
-        $sensore->codice=$request->input('codice');
+        $sensore->tipo=$request->input('codice');
         $sensore->marca=$request->input('marca');
         $sensore->ambiente=$request->input('sito');
         $sensore->save();
@@ -170,14 +180,27 @@ class AdminController extends Controller
         $s = \App\Sensori::find($request->input('id_sensore'));
         $ambiente= $s->ambiente;
 
-        $s->codice=$request->input('codice');
+        $s->tipo=$request->input('codice');
         $s->marca=$request->input('marca');
         $s->save();        
         
         return redirect()->action(
     'AdminController@SensoriHandle',['site_id' => $ambiente]);
     }
-      
+     
+       public function Search(Request $request)
+    {   
+        
+
+        $user = \App\User::find($request->ricerca);
+        $flag=1;
+        if( is_null($user))return redirect()->action(
+    'AdminController@UserHandle',compact('flag'));
+     
+        
+      return redirect()->action(
+    'AdminController@SiteHandle',['user_id' => $user->id]);
+    }  
 
 
 

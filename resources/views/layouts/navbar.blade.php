@@ -58,8 +58,9 @@
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
             </ul>
-          <form class="navbar-form navbar-right col-md-2">
-            <input type="text" class="form-control" placeholder="Search...">
+          <form class="navbar-form navbar-right col-md-2" action= "{{ route('search') }}" method='POST'>
+            <input type="text" class="form-control" placeholder="Search user" name="ricerca" >
+            {{ csrf_field() }}
           </form>
         </div>
       </div>

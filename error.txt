@@ -1,0 +1,3 @@
+X01, sensore spento
+X02, segnale debole
+X03, sensore disattivato

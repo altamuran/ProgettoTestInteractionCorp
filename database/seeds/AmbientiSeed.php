@@ -11,6 +11,6 @@ class AmbientiSeed extends Seeder
      */
     public function run()
     {
-        factory(App\ambienti::class, 10)->create();
+        factory(App\ambienti::class, 20)->create();
     }
 }

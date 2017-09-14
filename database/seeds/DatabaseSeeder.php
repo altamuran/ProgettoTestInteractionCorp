@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         
         
 
-        $this->call(RilevazioniSeed::class);
+        //this->call(RilevazioniSeed::class);
   
 
 
