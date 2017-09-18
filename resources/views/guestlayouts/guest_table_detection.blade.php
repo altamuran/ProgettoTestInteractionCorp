@@ -1,5 +1,5 @@
 <div class="col-sm-4 col-md-9 col-md-offset-0 main">
-          <h2>Dashboard</2>
+         
 
           
 

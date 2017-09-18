@@ -41,10 +41,11 @@ class DataController extends Controller
     }
 
 
- public function NoUser(){
+ 
+   public function Home(){
 
-    		return view('/guest/no_accept_user');
-	}
+        return view('/home');
+  }
 
 
   public function Detection($id_sensore){

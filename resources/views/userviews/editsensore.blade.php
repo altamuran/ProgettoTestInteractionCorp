@@ -12,14 +12,22 @@
     <div id="legend">
       <legend class="">Modifica Sensore</legend>
     </div>
-    <div class="control-group">
-      <!-- Username -->
-      <label class="control-label"  for="codice">Codice</label>
-      <div class="controls">
-        <input type="text" id="codice" name="codice" placeholder="" class="input-xlarge">
-        <p class="help-block">inserisci il codice sensore</p>
-      </div>
-    </div>
+   <div class="control-group">
+            <label for="codice" class="control-label"> 
+              Tipo
+            </label>
+            <div class="controls">
+              <select name="codice" id="codice">
+                <option value="barometro">Barometro</option>
+                <option value="termometro ">Termometro </option>
+                <option value="igrometro">Igrometro</option>
+                <option value="altimetro">Altimetro</option>
+                <option value="pluviometro">Pluviometro</option>
+                <option value="solarimetro">Solarimetro</option>
+                <option value="accelerometro">Accelerometro</option>
+          </select>
+            </div>
+          </div>
  
     <div class="control-group">
       <!-- E-mail -->

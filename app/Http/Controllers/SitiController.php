@@ -36,9 +36,13 @@ class SitiController extends Controller
     }
 
 
-    public function AddSite(){
-     
-      return view('/userviews/addsite');
+    public function AddSite($user_id){
+
+       //$User=\App\User::find($user_id)
+       
+
+       $user=$user_id;
+      return view('/userviews/addsite',compact('user'));
 
     }
 
@@ -46,7 +50,7 @@ class SitiController extends Controller
 
     public function AddSitePost(Request $request){
 
-            
+       if((is_null($User=\App\User::find($request->input('user')))))return back()->withInput();     
         
 
         $site= new \App\ambienti;

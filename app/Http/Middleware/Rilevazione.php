@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Storage;
+
 use Closure;
 
 class Rilevazione
@@ -15,8 +17,16 @@ class Rilevazione
      */
     public function handle($request, Closure $next)
     {   
-        $fp=fopen("C:/Users/USER/wa/InteractionCorp/rilevazioni.txt","r+");
-        $rilevazione = file_get_contents('C:/Users/USER/wa/InteractionCorp/rilevazioni.txt');
+
+            
+        $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
+        
+        $fp=fopen($path."myText.txt","r");
+        //DD($fp);
+        $rilevazione = file_get_contents($path."myText.txt");
+        
+        fclose($fp);
+
         $flag=strstr($rilevazione, 'null');
         if($flag==false){
             //$ril=new \App\rilevazioni;

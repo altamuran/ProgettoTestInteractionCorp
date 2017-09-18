@@ -1,21 +1,42 @@
 <?php
 
-namespace App\Http\Middleware;
-use Closure;
-use Illuminate\Support\Facades\Storage;
+namespace App\Console\Commands;
 
-class StringGen
+use Illuminate\Console\Command;
+
+class StringGen extends Command
 {
     /**
-     * Handle an incoming request.
+     * The name and signature of the console command.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @var string
+     */
+    protected $signature = 'StringGen';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'generatore di stringhe sensori';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {   
-
+    public function handle()
+    {
         $timestamp = mt_rand(1, time());    
         $randomDate = date('2017-m-d H:i:s' , $timestamp);
 
@@ -37,15 +58,15 @@ class StringGen
                 case '3':
                 $rilevazione=mt_rand(0 , 100);
                 break;
-        //              
+        //altimetro    
                 case '4':
                 $rilevazione=mt_rand(0 , 10000)/10;
                 break;
-        //  Pluviometro    
+        //pluviometro    
                 case '5':
                 $rilevazione=mt_rand(0 , 10000)/100;
                 break;
-        //  solarimetro    
+        //solarimetro    
                 case '6':
                 $rilevazione=mt_rand(0 , 100000)/100;
                 break;  
@@ -113,19 +134,14 @@ class StringGen
         $content=$id_sensore.' '.$rilevazione.' ' .$randomDate.' '.$messaggio;
         else
         $content='null';
-
-        $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
-        
-
-        $fp=fopen($path."myText.txt","w");
+        $fp=fopen("./rilevazioni.txt","wr+");
 
         fwrite($fp,$content);
-        $rilevazione = file_get_contents($path."myText.txt");
-
-
+        
         fclose($fp);
 
-        return $next($request);
+        
 
     }
+    
 }

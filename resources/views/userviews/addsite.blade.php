@@ -23,12 +23,16 @@
       </div>
     </div>
  
-    <div class="control-group">
-      <!-- E-mail -->
+     <div class="control-group">
+      
       <label class="control-label" for="user">User</label>
       <div class="controls">
-        <input type="number" id="user" name="user" placeholder="" class="input-xlarge">
-        <p class="help-block">inserire l'user incaricato della gestione del sito</p>
+
+        <select name="user">
+        <option value="{{$user}}">{{$user}}</option>
+        </select>
+        <br><br>
+      <p class="help-block">inserire utente</p>
       </div>
     </div>
  	<div class="control-group">

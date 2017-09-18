@@ -14,14 +14,23 @@
     <div id="legend">
       <legend class="">Aggiungi sensore</legend>
     </div>
+  
     <div class="control-group">
-      <!-- Username -->
-      <label class="control-label"  for="codice">Codice</label>
-      <div class="controls">
-        <input type="text" id="codice" name="codice" placeholder="" class="input-xlarge">
-        <p class="help-block">inserisci il codice sensore</p>
-      </div>
-    </div>
+            <label for="codice" class="control-label"> 
+              Tipo
+            </label>
+            <div class="controls">
+              <select name="codice" id="codice">
+                <option value="barometro">Barometro</option>
+                <option value="termometro ">Termometro </option>
+                <option value="igrometro">Igrometro</option>
+                <option value="altimetro">Altimetro</option>
+                <option value="pluviometro">Pluviometro</option>
+                <option value="solarimetro">Solarimetro</option>
+                <option value="accelerometro">Accelerometro</option>
+          </select>
+            </div>
+          </div>
  
     <div class="control-group">
       <!-- E-mail -->
@@ -33,7 +42,7 @@
     </div>
 
     <div class="control-group">
-      <!-- E-mail -->
+      
       <label class="control-label" for="sito">Sito</label>
       <div class="controls">
 
@@ -41,13 +50,11 @@
         <option value="{{$site}}">{{$site}}</option>
       </select>
     <br><br>
-
-        
-        <p class="help-block">inserire il sito nel quale integrare il sensore</p>
+      <p class="help-block">inserire il sito nel quale integrare il sensore</p>
       </div>
     </div>
  	<div class="control-group">
-      <!-- Button -->
+    
       <div class="controls">
         <button type ="submit" class="btn btn-success">Aggiungi</button>
       </div>

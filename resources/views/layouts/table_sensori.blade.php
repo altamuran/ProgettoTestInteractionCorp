@@ -1,6 +1,5 @@
 <div class="col-sm-4 col-md-8 col-md-offset-2 main">
-          <h2>Dashboard</2>
-
+          
           
 
           <h2 class="sub-header" style="margin-top: 50px">SENSORI</h2>
@@ -10,7 +9,7 @@
                 <tr>
                   <th>ID</th>
                   <th>Tipo</th>
-                  <th>Marca</th>
+                  <th>Marca</th> 
                   <th>Sito</th>
                 </tr>
               </thead>

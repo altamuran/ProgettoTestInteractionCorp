@@ -7,8 +7,8 @@
        		<li><a href="{{route('home')}}">HOME</a></li>
           @if((Auth::user()->privilegi)==2)
 
-           	<li><a href="{{route('adduser')}}">ADMIN PAGE</a></li>
-            <li><a href="{{route('userhandle')}}">GESTISCI UTENTI</a></li>
+           	<li><a href="{{route('adduser')}}">GESTIONE RICHIESTE</a></li>
+            <li><a href="{{route('userhandle')}}">GESTIONE UTENTI</a></li>
             <li><a href=""></a></li>
            	@endif
           </ul>

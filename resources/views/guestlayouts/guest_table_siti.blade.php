@@ -1,4 +1,4 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-0 main">
           <h2>Dashboard</2>
 
           

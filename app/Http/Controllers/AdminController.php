@@ -72,19 +72,4 @@ public function Accept($user_id){
 
 }
 
-
-public function Search(Request $request)
-{   
-  $user = \App\User::find($request->ricerca);
-  $flag=1;
-  if( is_null($user))return redirect()->action(
-    'AdminController@UserHandle',compact('flag'));
-
-
-    return redirect()->action(
-      'AdminController@SiteHandle',['user_id' => $user->id]);
-}  
-  
-
-
-}
+    }
