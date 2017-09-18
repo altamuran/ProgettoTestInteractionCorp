@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
+use Illuminate\Http\JsonResponse;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -55,9 +57,23 @@ class DataController extends Controller
     ->get();
     return view('guest/detection', compact('detections'));
 
-  
-
-    
 }
-
+    
+  public function Download(){
+      
+      
+        $rilevazioni =DB::table('rilevazioni')->join('sensori', 'rilevazioni.id_sensore', '=', 'sensori.id')
+            ->join('ambienti','sensori.ambiente','ambienti.id')
+            ->where('user','=', Auth::User()->id)->get();
+              $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
+        $fp=fopen($path."user_detection.txt","w");
+        fwrite($fp,$rilevazioni);
+        
+        $user_detection = file_get_contents($path."user_detection.txt");
+        fclose($fp);         
+        $fileText =file_get_contents($path."user_detection.txt");
+        $myName = "ThisDownload.txt";
+        $headers = ['Content-type'=>'text/plain', 'test'=>'YoYo', 'Content-Disposition'=>sprintf('attachment; filename="%s"', $myName),'X-BooYAH'=>'WorkyWorky','Content-Length'=>sizeof($fileText)];
+         return response()->download($path."user_detection.txt", 'detections.txt', $headers);
+          }
 }

@@ -27,8 +27,11 @@
                  
             </tr>
                
-             @endforeach 
-                    
+             @endforeach
+
+             <a href="{{route('download')}}"> 
+                    <button class="primary-button">Scarica rilevazioni</button>
+                    </a>
               </tbody>
             </table>
           </div>

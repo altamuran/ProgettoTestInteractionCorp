@@ -21,8 +21,8 @@ Auth::routes();
 Route::get('/home', 'DataController@Home')->name('home');
 Route::get('/guest/handle', 'DataController@Handle')->name('handle');
 Route::get('/guest/sensori/{site_id}', 'DataController@Sensori')->name('sensori');
-Route::get('/guest/sensori/{sensore_id}', 'DataController@Detection')->name('g_detection');
-
+Route::get('/guest/detection/{sensore_id}', 'DataController@Detection')->name('g_detection');
+Route::get('/download', 'DataController@Download')->name('download');
 //route utente root
 //Route::get('/adminviews/gestione_sensori', 'AdminController@AutHandle')->name('authandle')->middleware('auth.admin');
 
