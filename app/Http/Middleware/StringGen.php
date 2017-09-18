@@ -116,14 +116,16 @@ class StringGen
 
         $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
         
-
+         if(!file_exists($path."myText.txt")){
+              die("Risorsa non disponibile");
+            }else
+            {
         $fp=fopen($path."myText.txt","w");
-
-        fwrite($fp,$content);
+         fwrite($fp,$content);
         $rilevazione = file_get_contents($path."myText.txt");
 
-
         fclose($fp);
+            }
 
         return $next($request);
 

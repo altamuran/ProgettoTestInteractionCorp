@@ -20,12 +20,14 @@ class Rilevazione
 
             
         $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
-        
+        if(!file_exists($path."myText.txt")){
+              die("Risorsa non disponibile");
+            }else
+            {
         $fp=fopen($path."myText.txt","r");
-        //DD($fp);
         $rilevazione = file_get_contents($path."myText.txt");
-        
         fclose($fp);
+        }
 
         $flag=strstr($rilevazione, 'null');
         if($flag==false){

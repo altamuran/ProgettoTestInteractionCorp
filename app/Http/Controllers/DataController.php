@@ -63,20 +63,13 @@ class DataController extends Controller
     
   public function Download(){
 
-    if(!file_exists("opt.txt")) {
-    die("File not found");
-  } else {
-    $file=fopen("opt.txt","r");   // Also function executions errors are handle somehow
-  }
-      
-      
-
         $rilevazioni =DB::table('rilevazioni')->join('sensori', 'rilevazioni.id_sensore', '=', 'sensori.id')
             ->join('ambienti','sensori.ambiente','ambienti.id')
             ->where('user','=', Auth::User()->id)->get();
-            if(!file_exists(Session::get('path')."user_detection.txt")){
-              return back()->withInput();
-            }else{
+          if(!file_exists(Session::get('path')."user_detection.txt")){
+              die("Risorsa non disponibile");
+            }else
+            {
         $fp=fopen(Session::get('path')."user_detection.txt","w");
         fwrite($fp,$rilevazioni);
         $user_detection = file_get_contents(Session::get('path')."user_detection.txt");
