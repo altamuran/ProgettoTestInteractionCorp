@@ -68,15 +68,13 @@ class DataController extends Controller
         $rilevazioni =DB::table('rilevazioni')->join('sensori', 'rilevazioni.id_sensore', '=', 'sensori.id')
             ->join('ambienti','sensori.ambiente','ambienti.id')
             ->where('user','=', Auth::User()->id)->get();
-        $path=Session::get('path');
-        
-        $fp=fopen($path."user_detection.txt","w");
+        $fp=fopen(Session::get('path')."user_detection.txt","w");
         fwrite($fp,$rilevazioni);
-        $user_detection = file_get_contents($path."user_detection.txt");
+        $user_detection = file_get_contents(Session::get('path')."user_detection.txt");
         fclose($fp);         
-        $fileText =file_get_contents($path."user_detection.txt");
+        $fileText =file_get_contents(Session::get('path')."user_detection.txt");
         $myName = "ThisDownload.txt";
         $headers = ['Content-type'=>'text/plain', 'test'=>'YoYo', 'Content-Disposition'=>sprintf('attachment; filename="%s"', $myName),'X-BooYAH'=>'WorkyWorky','Content-Length'=>sizeof($fileText)];
-         return response()->download($path."user_detection.txt", 'detections.txt', $headers);
+         return response()->download(Session::get('path')."user_detection.txt", 'detections.txt', $headers);
           }
 }
