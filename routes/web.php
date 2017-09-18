@@ -10,7 +10,7 @@ use \App\Http\Middleware\Admin;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Session::put('path',$path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix()));
 Route::get('/', function () {
     return view('welcome');
 });

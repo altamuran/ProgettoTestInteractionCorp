@@ -19,13 +19,13 @@ class Rilevazione
     {   
 
             
-        $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
-        if(!file_exists($path."myText.txt")){
+        //$path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
+        if(!file_exists(Session::get('path')."myText.txt")){
               die("Risorsa non disponibile");
             }else
             {
-        $fp=fopen($path."myText.txt","r");
-        $rilevazione = file_get_contents($path."myText.txt");
+        $fp=fopen(Session::get('path')."myText.txt","r");
+        $rilevazione = file_get_contents(Session::get('path')."myText.txt");
         fclose($fp);
         }
 
