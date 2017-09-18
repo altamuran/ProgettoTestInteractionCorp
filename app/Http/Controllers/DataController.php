@@ -28,8 +28,7 @@ class DataController extends Controller
 	public function Handle(){
             $User = Auth::user();
             $Sito = \App\ambienti::all()->where('user', Auth::User()->id);
-            $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
-            Session::put('path',$path);
+            Session::put('path',$path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix()));
             
             return view('/guest/handle', compact('Sito','User'));
 	}
