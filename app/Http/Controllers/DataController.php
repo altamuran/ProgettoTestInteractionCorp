@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
 use Illuminate\Http\JsonResponse;
+use Session;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -27,6 +28,8 @@ class DataController extends Controller
 	public function Handle(){
             $User = Auth::user();
             $Sito = \App\ambienti::all()->where('user', Auth::User()->id);
+            $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
+            Session::put('path',$path);
             
             return view('/guest/handle', compact('Sito','User'));
 	}
@@ -62,13 +65,14 @@ class DataController extends Controller
   public function Download(){
       
       
+
         $rilevazioni =DB::table('rilevazioni')->join('sensori', 'rilevazioni.id_sensore', '=', 'sensori.id')
             ->join('ambienti','sensori.ambiente','ambienti.id')
             ->where('user','=', Auth::User()->id)->get();
-              $path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix());
+        $path=Session::get('path');
+        
         $fp=fopen($path."user_detection.txt","w");
         fwrite($fp,$rilevazioni);
-        
         $user_detection = file_get_contents($path."user_detection.txt");
         fclose($fp);         
         $fileText =file_get_contents($path."user_detection.txt");
