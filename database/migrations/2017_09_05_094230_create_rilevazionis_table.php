@@ -16,7 +16,7 @@ class CreateRilevazionisTable extends Migration
         Schema::create('rilevazioni', function (Blueprint $table) {
 
             $table->increments('id')->unsiged();
-            $table->string('valore');
+            $table->string('valore',30);
             $table->string('messaggio');
             $table->unsignedInteger('id_sensore')->unsiged();
             $table->dateTime('data_ril');

@@ -15,7 +15,7 @@ class CreateAmbientisTable extends Migration
     {
         Schema::create('ambienti', function (Blueprint $table) {
             $table->increments('id')->index()->unsigned();
-            $table->string('descrizione');
+            $table->string('descrizione',50);
             $table->integer('user')->unsigned();
             $table->timestamps();
 

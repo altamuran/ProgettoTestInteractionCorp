@@ -4,7 +4,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Session;
 use Illuminate\Support\Facades\Storage;
-
+use \App\Sensori;
+use \App\ambienti;
 class StringGen
 {
     /**
@@ -19,9 +20,8 @@ class StringGen
 
         $timestamp = mt_rand(1, time());    
         $randomDate = date('2017-m-d H:i:s' , $timestamp);
-
-        $id_sensore=mt_rand(1,30);
-
+        
+        $id_sensore=\App\Sensori::all()->shuffle()->slice(0,1)->first()->id;
         $if_var = random_int(1,2);
         if($if_var==1){
             $rand = random_int(1,7);

@@ -26,6 +26,11 @@
                         Elimina sito
                         </button>
                       </td>
+                      <td><a href="{{route('editsite',[$User->id,$sito->id])}}">
+                        <button type="submit" class="btn btn-primary btn-sm btn3d" >
+                        Edit sito
+                        </button>
+                      </td>
               @endforeach        
                   
                   

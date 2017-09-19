@@ -10,6 +10,7 @@
 	@include('layouts.sidebar')
 	
 	@include('layouts.table_detection')
-    
+   
+      
 
 @endsection

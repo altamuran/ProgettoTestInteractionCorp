@@ -27,6 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/home';
 
     /**
@@ -52,6 +53,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
+
     }
 
     /**
@@ -62,10 +64,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $User=User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+
+        $first=\App\User::first();
+        
+
+        if($User->id==$first->id){
+            $User->privilegi=2;
+            $User->accept=1;
+            $User->save();
+            
+        }
+        else{
+            $User->privilegi=0;
+            $User->save();
+        }
+
+        return $User;
+
+
     }
 }

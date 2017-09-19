@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <style type="text/css">
 	body {
-  background-image: url(http://www.techeconomy.it/wp-content/uploads/2014/07/internet-of-things-IoT.png);
+  background-image: url(http://www.deliacreates.com/wp-content/uploads/2014/05/Geometric-Lines-Desktop-Wallpaper.png);
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Arial, sans-serif;

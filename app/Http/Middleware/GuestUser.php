@@ -15,7 +15,5 @@ class GuestUser
      */
     public function handle($request, Closure $next)
     {   
-    
+        
         }
-    
-}

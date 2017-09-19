@@ -98,6 +98,7 @@ $factory->define(App\ambienti::class, function (Faker\Generator $faker) {
          
         'descrizione' => $faker->word,
         'user'=>App\User::all()->shuffle()->slice(0,1)->first()->id,
+
         ];
 });
 

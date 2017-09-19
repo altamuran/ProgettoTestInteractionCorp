@@ -12,8 +12,9 @@ use \App\Http\Middleware\Admin;
 |
 */
 Session::put('path',$path=(Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix()));
+
 Route::get('/', function () {
-    return view('welcome');
+		return view('welcome');
 });
 
 Auth::routes();
@@ -24,8 +25,7 @@ Route::get('/guest/handle', 'DataController@Handle')->name('handle');
 Route::get('/guest/sensori/{site_id}', 'DataController@Sensori')->name('sensori');
 Route::get('/guest/detection/{sensore_id}', 'DataController@Detection')->name('g_detection');
 Route::get('/download', 'DataController@Download')->name('download');
-//route utente root
-//Route::get('/adminviews/gestione_sensori', 'AdminController@AutHandle')->name('authandle')->middleware('auth.admin');
+
 
 Route::group(['middleware' => 'auth.admin'] ,function (){
 		Route::group(['middleware' => 'StringGen'], function () {
@@ -36,9 +36,12 @@ Route::get('/adminiews/admin_page', 'AdminController@AddUser')->name('adduser');
 Route::get('/adminiews/accept/{user_id}', 'AdminController@Accept')->name('accept');
 
 Route::get('/adminiews/gestione_siti/{user_id}', 'SitiController@SiteHandle')->name('sitehandle');
+Route::get('/adminiews/removesite/{site_id}', 'SitiController@RemoveSite')->name('removesite');
 Route::get('/adminiews/addsite/{user_id}', 'SitiController@AddSite')->name('addsite');
 Route::post('/adminiews/addnewsite', 'SitiController@AddSitePost')->name('addnewsite');
-Route::get('/adminiews/removesite/{site_id}', 'SitiController@RemoveSite')->name('removesite');
+
+Route::get('/adminiews/editsite/{user}/{site}','SitiController@EditSite')->name('editsite');
+Route::post('/adminiews/edit_s', 'SitiController@Edit')->name('edit_s');
 
 Route::get('/adminiews/gestione_sensori/{site_id}', 'SensoriController@SensoriHandle')->name('sensorihandle');
 Route::get('/adminiews/addsensore/{site_id}', 'SensoriController@AddSensore')->name('addsensore');
@@ -48,10 +51,7 @@ Route::get('/adminiews/removesensore/{sensore_id}', 'SensoriController@RemoveSen
 
 Route::get('/adminiews/editsensore/{sensore_id}/{site_id}', 'SensoriController@EditSensore')->name('editsensore');
 Route::post('/adminiews/edit', 'SensoriController@Edit')->name('edit');
-
-
-Route::post('/adminiews/search', 'AdminController@Search')->name('search');
-
 });
 	});
 		});
+

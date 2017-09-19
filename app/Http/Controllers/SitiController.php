@@ -62,7 +62,46 @@ class SitiController extends Controller
 
     }
 
-        public function RemoveSite($request)
+public function EditSite($user_id,$site_id)
+  {   
+    $s = \App\ambienti::find($site_id);
+    if((!is_null($s)==true)){
+    $user=$user_id;
+    $site=$site_id;
+    return view('/userviews/editsite',compact('user_id','site'));
+  }else
+  return back()->withInput();
+  }
+
+
+
+
+
+
+public function Edit(Request $request)
+  {   
+   
+    $s = \App\ambienti::find($request->input('sito'));
+    $ambiente= $s->ambiente;
+
+    if(is_null($request->input('user')))
+      return redirect()->action(
+      'SiteController@SitieHandle',['user_id' => $request->input('user')]);
+
+    if(is_string($request->input('sito'))==false)
+    {
+    $s->descrizione=$request->input('name');
+    $s->save();
+    return redirect()->action(
+      'SitiController@SiteHandle',['user_id' => $request->input('user')]);
+    }
+    else        
+    return redirect()->action(
+      'SitiController@SiteHandle',['user_id' => $request->input('user')]);
+  }
+
+
+     public function RemoveSite($request)
     {   
 
         $s = \App\ambienti::find($request);

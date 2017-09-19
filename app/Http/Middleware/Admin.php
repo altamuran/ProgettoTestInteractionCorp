@@ -15,18 +15,12 @@ class Admin
      */
     public function handle($request, Closure $next)
     {    
-
+         
         $user = Auth::user();
-
         if($user && $user->privilegi==2)
         return $next($request);
 
         
-
-
-
-        
-
         return redirect('/login');
     }
 }

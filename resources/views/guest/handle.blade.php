@@ -14,18 +14,19 @@
 @endif
 
 @if((Auth::user()->accept)===0)
+
 <div>
   <h1>
-  <a href  class="typewrite" data-period="200000" data-type='[ "UTENTE NON ANCORA VERIFICATO " ]' style="color: red">
+  <p class="typewrite" data-period="200000" data-type='[ "UTENTE NON ANCORA VERIFICATO " ]' style="color: red">
     <span class="wrap"></span>
-  </a>
+  </p>
   </h1>
   </div>
 <div class="col-md-8 col-md-offset-3">
   <br>
-  <a href=""  class="typewrite" data-period="200000" data-type='[ "attenda conferma email" ]'>
+  <p href=""  class="typewrite" data-period="200000" data-type='[ "attenda conferma email" ]'>
     <span class="wrap"></span>
-  </a>
+    </p>
 </div>
  
 @endif
