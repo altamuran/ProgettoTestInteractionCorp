@@ -1,1 +1,1 @@
-[{"id":6,"valore":"Y01","messaggio":"errore di rilevazione per mancanza di segnale","id_sensore":8,"data_ril":"2017-12-29 09:12:59","tipo":"altimetro","marca":"samsung","ambiente":6,"descrizione":"33","user":21,"created_at":"2017-09-19 15:16:28","updated_at":"2017-09-19 15:36:33"},{"id":6,"valore":"Y05","messaggio":"sensore in manutenzione","id_sensore":8,"data_ril":"2017-03-02 17:33:53","tipo":"altimetro","marca":"samsung","ambiente":6,"descrizione":"33","user":21,"created_at":"2017-09-19 15:16:28","updated_at":"2017-09-19 15:36:33"}]
+[]
